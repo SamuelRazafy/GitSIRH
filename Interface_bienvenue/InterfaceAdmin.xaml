@@ -1,0 +1,1056 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        xmlns:materialDesign1="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    x:Class="Interface_bienvenue.InterfaceAdmin"
+        mc:Ignorable="d"
+        Title="InterfaceAdmin" Height="800" Width="1293"
+
+        ResizeMode="NoResize"  WindowStyle="None" WindowStartupLocation="CenterScreen" WindowState="Maximized" Language="fr-fr">
+    <Window.Resources>
+        <!-- DataGrid style -->
+        <Style x:Key="DataGridStyle1" TargetType="{x:Type DataGrid}">
+            <Setter Property="ColumnHeaderStyle" Value="{DynamicResource ColumnHeaderStyle1}"/>
+        </Style>
+        <!-- DataGridColumnHeader style -->
+        <Style x:Key="ColumnHeaderStyle1" TargetType="DataGridColumnHeader">
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Background" Value="LightBlue"/>
+            <Setter Property="Foreground" Value="Blue"/>
+            <Setter Property="FontSize" Value="18" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="ToolTip" Value="Click to sort."/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid RenderTransformOrigin="0.518,0.041" Margin="00,0,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="270*"/>
+            <ColumnDefinition Width="1042*"/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--Panel Bouton Sisiny-->
+
+        <Grid x:Name="sidePanel" Background="#003F9A" HorizontalAlignment="Left" RenderTransformOrigin="0.504,0.534" VerticalAlignment="Center" Grid.ColumnSpan="2">
+            <StackPanel x:Name="logoPanel" Margin="0,0,0,702"/>
+            <StackPanel Margin="0,191,0,0">
+                <Button x:Name="btTableaudeBord" FontFamily="Segoe UI" FontSize="14" Height="49" Margin="0,8,0,0" Foreground="White" BorderBrush="Transparent" Background="Transparent" HorizontalAlignment="Left"  Click="btTableaudeBord_Click" Width="291">
+
+                    <StackPanel Orientation="Horizontal" Width="199">
+                        <Image Source="icones/dashboard.png" Height="35" VerticalAlignment="Center" Width="35" Margin="10,0,0,0" />
+                        <TextBlock Margin="15 0 0 0" Text="TABLEAU DE BORD" FontSize="14" VerticalAlignment="Center" Width="149"/>
+                    </StackPanel>
+
+                </Button>
+
+                <Button x:Name="btGestionConge" FontFamily="Sego UI" FontSize="16" Height="49" Foreground="White" BorderBrush="Transparent" Background="Transparent" Click="btGestionConge_Click" Margin="0,8,0,0" >
+
+                    <StackPanel Orientation="Horizontal" Width="221">
+                        <Image Source="icones/conge.png" Height="31" VerticalAlignment="Center" Width="50" Margin="20,0,0,0" HorizontalAlignment="Left" />
+                        <TextBlock Margin="0,0,0,0" Text="DEMANDES DE CONGE" FontSize="14" VerticalAlignment="Center" FontFamily="Segoe UI"/>
+                    </StackPanel>
+
+                </Button>
+                <Button x:Name="btGestionProjets" FontFamily="Sego UI" FontSize="14" Height="49" Margin="0,8,0,0" Foreground="White" BorderBrush="Transparent" Background="Transparent" Click="btGestionProjets_Click" Width="270">
+
+                    <StackPanel Orientation="Horizontal" Width="205">
+                        <Image Source="icones/projets.png" Height="39" VerticalAlignment="Center" Width="54" Margin="0,0,0,0" />
+                        <TextBlock Margin="5,0,0,0" Text="GESTION DE PROJETS" FontSize="14" VerticalAlignment="Center" FontFamily="Segoe UI"/>
+                    </StackPanel>
+
+                </Button>
+                <Button x:Name="btDemandeInscription" FontFamily="Sego UI" FontSize="14" Height="49" Margin="0,8,0,0" Foreground="White" BorderBrush="Transparent" Background="Transparent"  Width="272" Click="btDemandeInscription_Click">
+
+                    <StackPanel Orientation="Horizontal" Width="242" Margin="10,0,0,0">
+                        <Image Source="icones/signing.png" Height="48" VerticalAlignment="Center" Width="35" Margin="15,0,0,0" />
+                        <TextBlock Margin="10,10,0,0" Text="DEMANDES D'INSCRIPTION" FontSize="14" VerticalAlignment="Center" Width="175" FontFamily="Segoe UI"/>
+                    </StackPanel>
+
+                </Button>
+
+                <!--Panel Parametre -->
+
+
+
+                <!--Bt Paie-->
+
+                <Button x:Name="btPaie"  FontFamily="Sego UI" FontSize="14" Height="49" Foreground="White" BorderBrush="Transparent" Background="Transparent" Click="btPaie_Click" Margin="0,8,0,0">
+
+                    <StackPanel Orientation="Horizontal" Width="196">
+                        <Image Source="icones/paye.png" Height="36" VerticalAlignment="Center" Width="46" Margin="0,0,0,0" RenderTransformOrigin="0.609,0.5" />
+                        <TextBlock Margin="5,0,0,0" Text="PAIE" FontSize="14" VerticalAlignment="Center" FontFamily="Segoe UI"/>
+                    </StackPanel>
+
+                </Button>
+
+                <Button x:Name="btOutils"  FontFamily="Sego UI" FontSize="14" Height="48" Foreground="White" BorderBrush="Transparent" Background="Transparent"  Margin="0,8,0,0" Click="btOutils_Click">
+
+                    <StackPanel  Orientation="Horizontal" Width="196" VerticalAlignment="Top" HorizontalAlignment="Center">
+                        <Image Source="icones/outils.png" Height="36" VerticalAlignment="Center" Width="46" Margin="0,0,0,0" RenderTransformOrigin="0.609,0.5" />
+                        <TextBlock Margin="5,0,0,0" Text="PARAMÈTRES" FontSize="14" VerticalAlignment="Center" FontFamily="Segoe UI"/>
+                    </StackPanel>
+
+                </Button>
+
+                <!--Panel Bouton Sisiny Ambany-->
+
+            </StackPanel>
+            <Image x:Name="logo" Height="100" Width="100" Margin="82,46,85,654" Source="/MicrosoftTeams-image (3).png"/>
+            <Expander HorizontalAlignment="Center" Height="300" Header="EFFECTIF PAR DEPARTEMENT" Margin="0,547,0,0"  VerticalAlignment="Top" Background="Transparent" Foreground="White" Width="300">
+                <Grid Background="#003F9A" Height="254">
+                    <StackPanel Orientation="Vertical">
+                        <Button x:Name="btInformatique" FontFamily="Sego UI" FontSize="14" Height="41" Margin="4" Foreground="White" BorderBrush="Transparent" Background="Transparent" Click="btInformatique_Click">
+
+                            <StackPanel Orientation="Horizontal" Height="31" Width="200">
+                                <Image Source="icones/computer.png" Height="30" VerticalAlignment="Center" />
+                                <TextBlock Margin="15 0 0 0" Text="INFORMATIQUE" FontSize="14" VerticalAlignment="Center" FontFamily="Segoe UI"/>
+                            </StackPanel>
+
+                        </Button>
+                        <Button x:Name="btComptabilite" FontFamily="Sego UI" FontSize="14" Height="41" Margin="4" Foreground="White" BorderBrush="Transparent" Background="Transparent" Click="btComptabilite_Click">
+                            <StackPanel Orientation="Horizontal" Height="31" Width="200">
+                                <Image Source="icones/comptabilite.png" Height="30" VerticalAlignment="Center" />
+                                <TextBlock Margin="15 0 0 0" Text="COMPTABILITE" FontSize="14" VerticalAlignment="Center" FontFamily="Segoe UI" Height="23" Width="138"/>
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="btRessourceHumaine" FontFamily="Sego UI" FontSize="14" Height="41" Margin="4" Foreground="White" BorderBrush="Transparent" Background="Transparent" Width="255" Click="btRessourceHumaine_Click">
+                            <StackPanel Orientation="Horizontal" Height="41" Width="224">
+                                <Image Source="icones/rh.png" Height="30" VerticalAlignment="Center" Margin="10,0,0,0" />
+                                <TextBlock Margin="15 0 0 0" Text="RH" FontSize="14" VerticalAlignment="Center" FontFamily="Segoe UI" Width="146"/>
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="btMarketing" FontFamily="Sego UI" FontSize="14" Height="41" Margin="4" Foreground="White" BorderBrush="Transparent" Background="Transparent" Width="255" Click="btMarketing_Click">
+                            <StackPanel Orientation="Horizontal" Height="41" Width="224">
+                                <Image Source="icones/Marketing.png" Height="30" VerticalAlignment="Center" Margin="10,0,0,0" />
+                                <TextBlock Margin="15 0 0 0" Text="MARKETING" FontSize="14" VerticalAlignment="Center" FontFamily="Segoe UI" Width="146"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Expander>
+        </Grid>
+
+        <!--Panel Tableau de bord-->
+
+        <StackPanel x:Name="TableauDeBord" Grid.ColumnSpan="2" Margin="37,0,-34,0" Grid.Column="1" d:IsHidden="True">
+            <TextBlock x:Name="Menu_Page" TextWrapping="Wrap" Text="TABLEAU DE BORD" FontSize="24" Foreground="#FF003F9A" HorizontalAlignment="Center" Margin="0,45,0,0" FontWeight="Bold" Width="336" TextAlignment="Left"/>
+            <Canvas HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,20,0,200">
+
+                <!--Carte Demande de Conge-->
+
+                <materialDesign1:Card  x:Name="CongeCard" Canvas.Left="20" Canvas.Top="10" Height="136" Width="285" Background="White" MouseDown="CardCongeDown" Cursor="Hand" >
+                    <Grid Background="#FFEBEBEB">
+                        <TextBlock FontSize="18" Foreground="#FF0B408C" FontWeight="Bold" Margin="0,0,0,98" TextAlignment="Center"><Run Text="DEMANDE"/><Run Language="fr-fr" Text="S"/><Run Text=" DE CONGE "/></TextBlock>
+                        <TextBlock x:Name="TextBlockDemandeConge" Margin="150,35,78,35" FontSize="36" Foreground="#3a6ea5" FontWeight="Bold" Width="86">
+                            <TextBlock.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="1"/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                        <Image HorizontalAlignment="Left" Height="76" Margin="206,47,0,0" VerticalAlignment="Top" Width="57" Source="/icons8_leave_50px_1.png"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="94,106,0,0" TextWrapping="Wrap" Text="RESTANTE(S)" VerticalAlignment="Top" Height="28" Width="121" FontSize="18" FontWeight="Bold" Foreground="#FFFF6700"/>
+                    </Grid>
+                </materialDesign1:Card>
+
+                <!--Carte Taches-->
+
+                <materialDesign1:Card x:Name="TachesCard" Canvas.Left="350" Canvas.Top="10" Height="136" Width="297" Cursor="Hand" MouseDown="CarteTachesDown" >
+                    <Grid Background="#FFEBEBEB">
+                        <TextBlock FontSize="18" Foreground="#FF0B408C" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" TextAlignment="Center" Height="30" Width="285"><Run Text="TACHE"/><Run Language="fr-fr" Text="S"/></TextBlock>
+                        <TextBlock x:Name="TextblockListeTaches" Margin="92,35,78,35" FontSize="36" Foreground="#3a6ea5" FontWeight="Bold" Width="86"/>
+                        <Image HorizontalAlignment="Left" Height="75" Margin="212,41,0,0" VerticalAlignment="Top" Width="60" Source="/icons8_rescheduling_a_task_50px.png"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="94,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="127" FontSize="18" FontWeight="Bold" Foreground="#FFFF6700"><Run Text="RESTANTE "/><Run Language="fr-fr" Text="(S)"/><Run Text="                                   (S)"/></TextBlock>
+                    </Grid>
+                </materialDesign1:Card>
+
+                <!--Carte Demande d'Inscription-->
+
+                <materialDesign1:Card x:Name="Carte4" Canvas.Left="690" Canvas.Top="10" Height="136" Width="299" MouseDown="clickCarteDemandeInscription" Cursor="Hand" >
+                    <Grid Background="#FFEBEBEB">
+                        <TextBlock Text="DEMANDES D'INSCRIPTIONS " FontSize="18" Foreground="#FF0B408C" FontWeight="Bold" Margin="0,0,0,98" TextAlignment="Center"/>
+                        <TextBlock x:Name="TextBlockDemandeInscription" Margin="94,35,78,35" FontSize="36" Foreground="#3a6ea5" FontWeight="Bold" Width="86"/>
+                        <Image HorizontalAlignment="Left" Height="90" Margin="212,43,0,0" VerticalAlignment="Top" Width="61" Source="/icons8_sign_document_50px.png"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="94,106,0,0" TextWrapping="Wrap" Text="RESTANT(S)" VerticalAlignment="Top" Height="28" Width="111" FontSize="18" FontWeight="Bold" Foreground="#FFFF6700"/>
+                    </Grid>
+                </materialDesign1:Card>
+
+                <!--Partie Carte Projets et Actualites-->
+
+            </Canvas>
+            <Canvas HorizontalAlignment="Left" VerticalAlignment="Top">
+
+                <!--Carte Projets -->
+                <materialDesign1:Card x:Name="Carte5" Canvas.Left="20" Canvas.Top="24" Height="254" Width="492">
+                    <Grid Margin="0,0,0,-146">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="530*"/>
+                            <ColumnDefinition Width="7*"/>
+                            <ColumnDefinition Width="15*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="PROJETS " FontSize="24" Foreground="#FF0B408C" FontWeight="Normal" TextAlignment="Center" Margin="0,0,0,0" Height="30" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,69,0,296" Grid.ColumnSpan="3">
+                            <TextBlock x:Name="TextBlockVaccination" Text="VACCINATION " FontSize="18" Foreground="#FF0B408C" FontWeight="Normal" TextAlignment="Center" Margin="10,0,0,0" Width="285" Height="25"/>
+                            <ProgressBar Height="12" Width="100" Background="Gray"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,90,0,203" Grid.ColumnSpan="3">
+                            <TextBlock x:Name="TextBlockDigitalisation" Text="DIGITALISATION " FontSize="18" Foreground="#FF0B408C" FontWeight="Normal" TextAlignment="Center" Margin="5,0,0,0" Width="292" Height="30"/>
+                            <ProgressBar Height="13" Width="150" Background="#3a6ea5"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,125,0,113" Grid.ColumnSpan="3">
+                            <TextBlock x:Name="TextBlockCampagnePublicitaire" Text="CAMPAGNE PUB " FontSize="18" Foreground="#FF0B408C" FontWeight="Normal" TextAlignment="Center" Margin="5,0,0,0" Width="291" Height="29"/>
+                            <ProgressBar Height="10" Width="190" Background="#ff6700"/>
+                        </StackPanel>
+
+                    </Grid>
+
+
+
+                </materialDesign1:Card>
+
+                <!--Carte Actualites-->
+
+                <materialDesign1:Card x:Name="Carte6" Canvas.Left="567" Canvas.Top="24" Height="407" Width="423">
+                    <StackPanel>
+                        <StackPanel Orientation="Vertical" Margin="0,0,0,0" Height="245">
+                            <StackPanel.Background>
+                                <ImageBrush ImageSource="/happy birthday.jpg"/>
+                            </StackPanel.Background>
+                            <TextBlock Text="ACTUALITÉS" FontSize="18" Foreground="White" FontWeight="Bold" TextAlignment="Center" Width="200" Height="30" Margin="125,40,0,0"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Image HorizontalAlignment="Center" Source="/hbd.png" Width="50" Height="50"  Margin="5,0,0,0"/>
+                            <TextBlock x:Name="TextBlockAnniversaire2" FontSize="14" Foreground="#3a6ea5" Text="Aujourd'hui c'est l'anniversaire de Antsa" FontWeight="Bold" TextAlignment="Center" Width="327" Height="44" Margin="0,20,0,0"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <Image HorizontalAlignment="Center" Source="/baby.png" Width="50" Height="50" Margin="5,0,0,0"/>
+                            <TextBlock x:Name="Naissance" FontSize="14" Foreground="#3a6ea5" FontWeight="Bold" Text="Mme Miora a mis au monde un petit Garçon" TextAlignment="Center" Width="327" Height="44" Margin="0,20,0,0"/>
+                        </StackPanel>
+
+
+                    </StackPanel>
+                </materialDesign1:Card>
+            </Canvas>
+        </StackPanel>
+
+        <!--Bouton Close-->
+
+        <Button x:Name="close" Click="close_Click" HorizontalAlignment="Right" Margin="0,19,10,0" Foreground="Black" BorderBrush="White" Background="{x:Null}" BorderThickness="0,0,0,0" Grid.Column="1" Width="52" VerticalAlignment="Top" Height="64">
+            <Button.Content>
+                <Image HorizontalAlignment="Center" Source="/icons8_export_50px_1.png" Width="30" Height="30"></Image>
+            </Button.Content>
+        </Button>
+
+        <!--Panel Fiche de Paie-->
+
+
+
+
+        <!--Panel Profil Departement Informatique-->
+
+        <StackPanel x:Name="PanelDepartement_Info" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Width="1094" Height="800" Grid.Column="1" d:IsHidden="True">
+            <Label Content="DEPARTEMENT INFORMATIQUE" Width="500" Height="47" FontWeight="Bold" FontSize="24" Foreground="#FF003F9A" Margin="0,30,0,0"/>
+            <StackPanel Height="589" HorizontalAlignment="Left" Margin="20,30,0,0" Width="996">
+                <DataGrid x:Name="DepartementInformatique" Height="576" FontSize="10" d:ItemsSource="{d:SampleData ItemCount=10}" Width="1014" RenderTransformOrigin="0.975,0.600">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Width="80" IsReadOnly="True">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border CornerRadius="80,80,80,80" HorizontalAlignment="Center" VerticalAlignment="Top" Height="40" Width="40">
+                                        <Border.Background>
+                                            <ImageBrush x:Name="imagePdP" Stretch="Fill" ImageSource="{Binding urlPhoto}"/>
+                                        </Border.Background>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+
+
+                        <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Width="90"/>
+                        <DataGridTextColumn Header="Prenom" Binding="{Binding Prenom}" Width="90"/>
+                        <DataGridTextColumn Header="CIN" Binding="{Binding CINEmp}" Width="90"/>
+                        <DataGridTextColumn Header="Statut Matrimonial" Binding="{Binding statutMatrimonial}" Width="120"/>
+                        <DataGridTextColumn Header="Sexe" Binding="{Binding Sexemp}" Width="90"/>
+                        <DataGridTextColumn Header="Date Entrée" Binding="{Binding DateEntree}" Width="90"/>
+                        <DataGridTextColumn Header="Fonction" Binding="{Binding Fonction}" Width="90"/>
+                        <DataGridTemplateColumn Width="130" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button x:Name="btModifierInfo" Width="80" Background="Green" Content="MODIFIER" FontSize="9" materialDesign:ButtonAssist.CornerRadius="15" Click="btModifierInfo" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="130" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button  x:Name="btSupprimerInfo" Width="80" Background="Red" Content="SUPPRIMER" materialDesign:ButtonAssist.CornerRadius="15" FontSize="9" Click="btSupprimerierInfo" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <materialDesign1:DataGridComboBoxColumn/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+
+
+        </StackPanel>
+
+        <!--Panel Profil Departement RH-->
+
+        <StackPanel x:Name="PanelDepartement_RH" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1019" Height="800" Grid.Column="1" d:IsHidden="True">
+            <Label Content="DEPARTEMENT DES RESSOURCES HUMAINES" Width="600" Height="47" FontWeight="Bold" FontSize="24" Foreground="#FF003F9A" Margin="0,30,0,0"/>
+            <StackPanel Height="637" HorizontalAlignment="Left" Margin="20,30,0,0" Width="996" d:IsHidden="True">
+                <DataGrid x:Name="DepartementRH" Height="581" FontSize="10" d:ItemsSource="{d:SampleData ItemCount=10}" Width="972" RenderTransformOrigin="0.975,0.600" d:IsHidden="True">
+                    <DataGrid.Columns>
+
+                        <DataGridTemplateColumn Width="80" IsReadOnly="True">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border CornerRadius="80,80,80,80" HorizontalAlignment="Center" VerticalAlignment="Top" Height="40" Width="40">
+                                        <Border.Background>
+                                            <ImageBrush x:Name="imagePdP" Stretch="Fill" ImageSource="{Binding urlPhoto}"/>
+                                        </Border.Background>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+
+                        <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Width="90"/>
+                        <DataGridTextColumn Header="Prenom" Binding="{Binding Prenom}" Width="90"/>
+                        <DataGridTextColumn Header="CIN" Binding="{Binding CINEmp}" Width="90"/>
+                        <DataGridTextColumn Header="Statut Matrimonial" Binding="{Binding statutMatrimonial}" Width="120"/>
+                        <DataGridTextColumn Header="Sexe" Binding="{Binding Sexemp}" Width="90"/>
+                        <DataGridTextColumn Header="Date Entrée" Binding="{Binding DateEntree}" Width="90"/>
+                        <DataGridTextColumn Header="Fonction" Binding="{Binding Fonction}" Width="90"/>
+                        <DataGridTemplateColumn Width="130" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button x:Name="modifierDRH" Width="80" Background="Green" Content="MODIFIER" materialDesign:ButtonAssist.CornerRadius="15" FontSize="9" Click="btModifierRh" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="130" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button x:Name="supprimerDRH" Width="80" Background="Red" Content="SUPPRIMER" materialDesign:ButtonAssist.CornerRadius="15" FontSize="9" Click="supprimerRH" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <materialDesign:DataGridComboBoxColumn/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+
+
+        </StackPanel>
+
+        <!--Panel Profil Departement Comptabilite-->
+
+        <StackPanel x:Name="PanelDepartement_Comptabilite" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1019" Height="800" Grid.Column="1" d:IsHidden="True">
+            <Label Content="DEPARTEMENT DE COMPTABILITE " Width="400" Height="47" FontWeight="Bold" FontSize="24" Foreground="#FF003F9A" Margin="0,50,0,0"/>
+            <StackPanel Height="581" HorizontalAlignment="Left" Margin="20,30,0,0" Width="996" d:IsHidden="True">
+                <DataGrid x:Name="DepartementComptabilite" Height="576" FontSize="10" d:ItemsSource="{d:SampleData ItemCount=10}" Width="972" RenderTransformOrigin="0.975,0.600">
+                    <DataGrid.Columns>
+
+                        <DataGridTemplateColumn Width="80" IsReadOnly="True">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border CornerRadius="80,80,80,80" HorizontalAlignment="Center" VerticalAlignment="Top" Height="40" Width="40">
+                                        <Border.Background>
+                                            <ImageBrush x:Name="imagePdP" Stretch="Fill" ImageSource="{Binding urlPhoto}"/>
+                                        </Border.Background>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+
+                        <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Width="90"/>
+                        <DataGridTextColumn Header="Prenom" Binding="{Binding Prenom}" Width="90"/>
+                        <DataGridTextColumn Header="CIN" Binding="{Binding CINEmp}" Width="90"/>
+                        <DataGridTextColumn Header="Statut Matrimonial" Binding="{Binding statutMatrimonial}" Width="120"/>
+                        <DataGridTextColumn Header="Sexe" Binding="{Binding Sexemp}" Width="90"/>
+                        <DataGridTextColumn Header="Date Entrée" Binding="{Binding DateEntree}" Width="90"/>
+                        <DataGridTextColumn Header="Fonction" Binding="{Binding Fonction}" Width="90"/>
+                        <DataGridTemplateColumn Width="130" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button x:Name="btmodifCompta" Width="80" Background="Green" Content="Modifier" FontSize="9"  materialDesign:ButtonAssist.CornerRadius="15" Click="btmodifCompta" >
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="130" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button x:Name="supprimerCompta" Width="80" Background="Red" Content="Supprimer"  FontSize="9" materialDesign:ButtonAssist.CornerRadius="15" Click="supprimmerCompta">
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <materialDesign1:DataGridComboBoxColumn/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+
+
+        </StackPanel>
+
+        <!--Panel Profil Departement Marketing-->
+
+        <StackPanel x:Name="PanelDepartement_Marketing" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1019" Height="800" Grid.Column="1" d:IsHidden="True">
+            <Label Content="DEPARTEMENT MARKETING" Width="395" Height="47" FontWeight="Bold" FontSize="24" Foreground="#FF003F9A" Margin="0,30,0,0"/>
+            <StackPanel Height="627" HorizontalAlignment="Left" Margin="20,30,0,0" Width="996">
+                <DataGrid x:Name="DepartementMarketing" Height="602" FontSize="10" d:ItemsSource="{d:SampleData ItemCount=10}" Width="972" RenderTransformOrigin="0.975,0.600" d:IsHidden="True">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Width="80" IsReadOnly="True">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border CornerRadius="80,80,80,80" HorizontalAlignment="Center" VerticalAlignment="Top" Height="40" Width="40">
+                                        <Border.Background>
+                                            <ImageBrush x:Name="imagePdP" Stretch="Fill" ImageSource="{Binding urlPhoto}"/>
+                                        </Border.Background>
+                                    </Border>
+                                </DataTemplate>
+
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Width="90"/>
+                        <DataGridTextColumn Header="Prenom" Binding="{Binding Prenom}" Width="90"/>
+                        <DataGridTextColumn Header="CIN" Binding="{Binding CINEmp}" Width="90"/>
+                        <DataGridTextColumn Header="Statut Matrimonial" Binding="{Binding statutMatrimonial}" Width="120"/>
+                        <DataGridTextColumn Header="Sexe" Binding="{Binding Sexemp}" Width="90"/>
+                        <DataGridTextColumn Header="Date Entrée" Binding="{Binding DateEntree}" Width="90"/>
+                        <DataGridTextColumn Header="Fonction" Binding="{Binding Fonction}" Width="90"/>
+                        <DataGridTemplateColumn Width="130" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button x:Name="btmodifMarketing"  Width="80" Background="Green" materialDesign:ButtonAssist.CornerRadius="15" Content="Modifier" FontSize="9" Click="btmodifMarketing" >
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="130" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button x:Name="supprimerMarketing" Width="80" materialDesign:ButtonAssist.CornerRadius="15" Background="Red" Content="Supprimer"  FontSize="9" Click="supprimerMarketing">
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <materialDesign1:DataGridComboBoxColumn/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+
+        </StackPanel>
+
+
+        <!--Fenetre Flottante Informatique-->
+
+        <StackPanel x:Name="FenetreInfoFlottante" Grid.Column="1" Margin="0,60,0,0" Orientation="Horizontal" Width="1270" d:IsHidden="True" >
+            <StackPanel Height="800" Width="1270">
+                <Grid x:Name="ModificationInscription" HorizontalAlignment="Center" Height="455" Margin="-70,0,0,0" Width="337" Background="Transparent">
+
+                    <Border BorderBrush="Transparent" BorderThickness="0.5,0.5,0.5,0.5" CornerRadius="30,30,30,30" Background="#EBEBEB"/>
+                    <Border CornerRadius="80,80,80,80" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,35,0,0" Height="150" Width="150" >
+                        <Border.Background>
+                            <ImageBrush x:Name="imagePdPInfo" Stretch="Fill" ImageSource="icones/noir.png"/>
+
+                        </Border.Background>
+                    </Border>
+                    <materialDesign:PackIcon x:Name="fermerInfo" Kind="Close"
+                        VerticalAlignment="Top"
+                        Width="20"
+                        Height="20"
+                        HorizontalAlignment="Right"
+                        Opacity="0.3"
+                        Margin="0 13 14 0"  Cursor="Hand" MouseDown="fermerInfoFlottante" />
+                    <StackPanel Orientation="Horizontal" Margin="11,190,0,181" HorizontalAlignment="Center" Width="335">
+
+                        <Label Height="36" Width="121" HorizontalAlignment="Left" >
+                            <TextBlock FontSize="15" HorizontalAlignment="Left" Text="Département" Foreground="Black" FontWeight="Bold" VerticalAlignment="Top" Height="24" Margin="0,10,10,0" />
+                        </Label>
+                        <TextBox x:Name="textboxDepartementInfo" Width="186" Height="28" VerticalAlignment="Top" Margin="0,30,0,0" Background="AliceBlue" Foreground="Black" FontSize="14"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,274,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="86" Width="315">
+                        <Label  Margin="10,0,0,0" Width="107" Height="38" >
+                            <TextBlock FontSize="15" HorizontalAlignment="Left" Text="Poste" Foreground="Black" FontWeight="Bold" Height="28" Width="83" VerticalAlignment="Top" Margin="30,0,0,0" />
+                        </Label>
+                        <TextBox x:Name="textboxFonctionInfo" Width="191" Height="28" VerticalAlignment="Top" Margin="0,20,0,0" Background="AliceBlue" Foreground="Black" FontSize="14" />
+                    </StackPanel>
+
+
+                    <Button x:Name="btnAjouter" HorizontalAlignment="Left" Margin="135,360,39,50" Height="35" BorderBrush="#FF003F9A" Background="#FF003F9A" Click="btnAjouter_Click">
+
+                        <TextBlock FontSize="12" ><Run Language="fr-fr" Text="Ajouter"/></TextBlock>
+                    </Button>
+
+
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+
+        <!--Fenetre Flottante Comptabilite-->
+
+        <StackPanel x:Name="FenetreInfoFlottanteCompta" Grid.Column="1" Margin="0,60,0,0" Orientation="Horizontal" Width="1270" d:IsHidden="True" >
+            <StackPanel Height="800" Width="1270">
+                <Grid x:Name="ModificationInscriptionC" HorizontalAlignment="Center" Height="455" Margin="-70,0,0,0" Width="337" Background="Transparent">
+
+                    <Border BorderBrush="Transparent" BorderThickness="0.5,0.5,0.5,0.5" CornerRadius="30,30,30,30" Background="#EBEBEB"/>
+                    <Border CornerRadius="80,80,80,80" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,35,0,0" Height="150" Width="150" >
+                        <Border.Background>
+                            <ImageBrush x:Name="imagePdPC" Stretch="Fill" ImageSource="icones/rouge.png"/>
+                        </Border.Background>
+                    </Border>
+                    <materialDesign:PackIcon x:Name="fermerCompta" Kind="Close"
+                        VerticalAlignment="Top"
+                        Width="20"
+                        Height="20"
+                        HorizontalAlignment="Right"
+                        Opacity="0.3"
+                        Margin="0 13 14 0"  Cursor="Hand" MouseDown="fermerComptabiliteFlottante" />
+                    <StackPanel Orientation="Horizontal" Margin="0,190,0,181" HorizontalAlignment="Left" Width="327">
+                        <Label  Margin="0,0,0,0" Height="37" >
+                            <TextBlock FontSize="15" HorizontalAlignment="Left" Text="Département" Foreground="Black" FontWeight="Bold" VerticalAlignment="Top" Height="24" Margin="20,10,10,0" />
+                        </Label>
+                        <TextBox x:Name="textboxDepartementC" Width="186" Height="28" VerticalAlignment="Top" Margin="0,30,0,0" Background="AliceBlue" Foreground="Black" FontSize="14"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,274,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="86" Width="315">
+                        <Label  Margin="10,0,0,0" Width="107" Height="38" >
+                            <TextBlock FontSize="15" HorizontalAlignment="Left" Text="Poste" Foreground="Black" FontWeight="Bold" Height="28" Width="83" VerticalAlignment="Top" Margin="30,0,0,0" />
+                        </Label>
+                        <TextBox x:Name="textboxFonctionC" Width="191" Height="28" VerticalAlignment="Top" Margin="0,20,0,0" Background="AliceBlue" Foreground="Black" FontSize="14" />
+                    </StackPanel>
+
+
+                    <Button x:Name="btnAjouterC" HorizontalAlignment="Left" Margin="135,360,39,50" Height="35" BorderBrush="#FF003F9A" Background="#FF003F9A" Click="btnAjouterCclick">
+
+                        <TextBlock FontSize="12" ><Run Language="fr-fr" Text="Ajouter"/></TextBlock>
+                    </Button>
+
+
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+
+
+        <!--Fenetre Flottante RH-->
+
+        <StackPanel x:Name="FenetreInfoFlottanteRH" Grid.Column="1" Margin="0,60,0,0" Orientation="Horizontal" Width="1270" d:IsHidden="True" >
+            <StackPanel Height="800" Width="1270">
+                <Grid x:Name="ModificationInscriptionRH" HorizontalAlignment="Center" Height="455" Margin="-70,0,0,0" Width="337" Background="Transparent">
+
+                    <Border BorderBrush="Transparent" BorderThickness="0.5,0.5,0.5,0.5" CornerRadius="30,30,30,30" Background="#EBEBEB"/>
+                    <Border CornerRadius="80,80,80,80" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,35,0,0" Height="150" Width="150" >
+                        <Border.Background>
+                            <ImageBrush x:Name="imagePdPRH" Stretch="Fill" ImageSource="icones/bleu.png"/>
+                        </Border.Background>
+                    </Border>
+                    <materialDesign:PackIcon x:Name="fermerRH" Kind="Close"
+                        VerticalAlignment="Top"
+                        Width="20"
+                        Height="20"
+                        HorizontalAlignment="Right"
+                        Opacity="0.3"
+                        Margin="0 13 14 0"  Cursor="Hand" MouseDown="fermerfenetreflottanteMarketing" />
+                    <StackPanel Orientation="Horizontal" Margin="0,190,0,181" HorizontalAlignment="Left" Width="327">
+                        <Label  Margin="0,0,0,0" Height="37" >
+                            <TextBlock FontSize="15" HorizontalAlignment="Left" Text="Département" Foreground="Black" FontWeight="Bold" VerticalAlignment="Top" Height="24" Margin="20,10,10,0" />
+                        </Label>
+                        <TextBox x:Name="textboxDepartementRH" Width="186" Height="28" VerticalAlignment="Top" Margin="0,30,0,0" Background="AliceBlue" Foreground="Black" FontSize="14"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,274,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="86" Width="315">
+                        <Label  Margin="10,0,0,0" Width="107" Height="38" >
+                            <TextBlock FontSize="15" HorizontalAlignment="Left" Text="Poste" Foreground="Black" FontWeight="Bold" Height="28" Width="83" VerticalAlignment="Top" Margin="30,0,0,0" />
+                        </Label>
+                        <TextBox x:Name="textboxFonctionRH" Width="191" Height="28" VerticalAlignment="Top" Margin="0,20,0,0" Background="AliceBlue" Foreground="Black" FontSize="14" />
+                    </StackPanel>
+
+
+                    <Button x:Name="btnAjouterRH" HorizontalAlignment="Left" Margin="135,360,39,50" Height="35" BorderBrush="#FF003F9A" Background="#FF003F9A" Click="btnAjouterRHclick">
+
+                        <TextBlock FontSize="12" ><Run Language="fr-fr" Text="Ajouter"/></TextBlock>
+                    </Button>
+
+
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+
+
+        <!--Fenetre Flottante Marketing-->
+
+        <StackPanel x:Name="FenetreInfoFlottanteMarketing" Grid.Column="1" Margin="0,60,0,0" Orientation="Horizontal" Width="1270" d:IsHidden="True" >
+            <StackPanel Height="800" Width="1270">
+                <Grid x:Name="ModificationInscriptionMarketing" HorizontalAlignment="Center" Height="455" Margin="-70,0,0,0" Width="337" Background="Transparent">
+
+                    <Border BorderBrush="Transparent" BorderThickness="0.5,0.5,0.5,0.5" CornerRadius="30,30,30,30" Background="#EBEBEB"/>
+                    <Border CornerRadius="80,80,80,80" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,35,0,0" Height="150" Width="150" >
+                        <Border.Background>
+                            <ImageBrush x:Name="imagePdPMarketing" Stretch="Fill" ImageSource="icones/jaune.png"/>
+                        </Border.Background>
+                    </Border>
+                    <materialDesign:PackIcon x:Name="fermerMarketing" Kind="Close"
+                        VerticalAlignment="Top"
+                        Width="20"
+                        Height="20"
+                        HorizontalAlignment="Right"
+                        Opacity="0.3"
+                        Margin="0 13 14 0"  Cursor="Hand" MouseDown="FermerFlottanteMarketing" />
+                    <StackPanel Orientation="Horizontal" Margin="0,190,0,181" HorizontalAlignment="Center" Width="316">
+                        <Label  Margin="0,0,0,0" Height="37" >
+                            <TextBlock FontSize="15" HorizontalAlignment="Left" Text="Département" Foreground="Black" FontWeight="Bold" VerticalAlignment="Top" Height="24" Margin="20,10,10,0" />
+                        </Label>
+                        <TextBox x:Name="textboxDepartementMarketing" Width="186" Height="28" VerticalAlignment="Top" Margin="0,30,0,0" Background="AliceBlue" Foreground="Black" FontSize="14"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,274,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="86" Width="315">
+                        <Label  Margin="10,0,0,0" Width="107" Height="38" >
+                            <TextBlock FontSize="15" HorizontalAlignment="Left" Text="Poste" Foreground="Black" FontWeight="Bold" Height="28" Width="83" VerticalAlignment="Top" Margin="30,0,0,0" />
+                        </Label>
+                        <TextBox x:Name="textboxFonctionMarketing" Width="191" Height="28" VerticalAlignment="Top" Margin="0,20,0,0" Background="AliceBlue" Foreground="Black" FontSize="14" />
+                    </StackPanel>
+
+
+                    <Button x:Name="btnAjouterMarketing" HorizontalAlignment="Left" Margin="135,360,39,50" Height="35" BorderBrush="#FF003F9A" Background="#FF003F9A" Click="btAjouterMarketingClick">
+
+                        <TextBlock FontSize="12" ><Run Language="fr-fr" Text="Ajouter"/></TextBlock>
+                    </Button>
+
+
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+
+
+
+        <!--Panel Demande Inscription-->
+
+        <StackPanel x:Name="PanelDemandeInscription"  Margin="3,0,0,0" Grid.Column="1" d:IsHidden="True">
+            <Label  Margin="40,100,0,50" Height="50" Width="450">
+                <TextBlock FontSize="24" Width="500" Text="GERER LES DEMANDES D'INSCRIPTION" Foreground="#FF003F9A" FontWeight="Bold" Height="40"/>
+            </Label>
+            <DataGrid x:Name="DemandeInscriptionGrid"  Height="432" d:ItemsSource="{d:SampleData ItemCount=6}" Width="1100">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Width="100" IsReadOnly="True">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding urlPhoto}" Height="40" Width="40"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Width="150"/>
+                    <DataGridTextColumn Header="Prenom" Binding="{Binding Prenom}" Width="150"/>
+                    <DataGridTextColumn Header="Departement" Binding="{Binding Departement}" Width="180"/>
+                    <DataGridTextColumn Header="Fonction" Binding="{Binding Fonction}" Width="180"/>
+                    <DataGridTemplateColumn Width="120" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name= "btValider" Width="80"  materialDesign:ButtonAssist.CornerRadius="15" Click="btValiderClick" >
+                                    <Button.Background>
+
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="Green"/>
+                                            <GradientStop Color="#00A100" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Button.Background>
+                                    <TextBlock FontSize="10" ><Run Language="fr-fr" Text="VALIDER"/></TextBlock>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="120" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="btAnnuler" Width="80"  materialDesign:ButtonAssist.CornerRadius="15" Click="btAnnulerClick">
+                                    <TextBlock FontSize="10" ><Run Language="fr-fr" Text="ANNULER"/></TextBlock>
+                                    <Button.Background>
+
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="#FFAB1D1D"/>
+                                            <GradientStop Color="#FFFF0C03" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Button.Background>
+
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </StackPanel>
+        <StackPanel x:Name="MatriceRACI" Grid.Column="1" Margin="0,60,0,0" Orientation="Horizontal" Width="1000" d:IsHidden="True"  >
+            <StackPanel Height="800" Width="1270">
+                <Label Height="44" Width="352">
+                    <TextBlock FontSize="24" HorizontalAlignment="Center" Text="Matrice RACI" Foreground="#003F9A" FontWeight="Bold" Height="66" Width="235"/>
+                </Label>
+
+                <DataGrid x:Name="gridRACI" Width ="1400" AutoGenerateColumns="False" GridLinesVisibility="All" d:ItemsSource="{d:SampleData ItemCount=5}" Height="1000" BorderBrush="#D7D7D8" >
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="LayoutTransform">
+                                <Setter.Value>
+                                    <RotateTransform Angle="270" />
+                                </Setter.Value>
+
+                            </Setter>
+
+
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn x:Name="tacheEtLivrables"  Header="Tâches et Livrables" Binding="{Binding nomTache}" Width="250" IsReadOnly="True">
+                            <DataGridTextColumn.CellStyle  >
+                                <Style TargetType="DataGridCell" >
+                                    <Setter Property="BorderBrush" Value="Gray" />
+                                    <Setter Property="BorderThickness" Value="0 0 1 0" />
+                                    <Setter Property="LayoutTransform">
+                                        <Setter.Value>
+                                            <RotateTransform Angle="0"/>
+
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+
+                        </DataGridTextColumn>
+
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+
+
+            </StackPanel>
+        </StackPanel>
+
+        <!---Demande Congé-->
+
+        <StackPanel x:Name="PannelConge"  Grid.Column="1" Margin="0,60,0,0" Orientation="Horizontal" Width="1270" d:IsHidden="True"  >
+
+            <StackPanel Height="800" Width="1270">
+                <Label Margin="30,50,0,10" Height="50" Width="352">
+                    <TextBlock FontSize="24" HorizontalAlignment="Center" Text="DEMANDES DE CONGES" Foreground="#FF003F9A" FontWeight="Bold" Height="40"/>
+                </Label>
+                <DataGrid x:Name="gridConge" Width ="1300" AutoGenerateColumns="False" d:ItemsSource="{d:SampleData ItemCount=5}"  Height="500" IsReadOnly="True" >
+
+                    <DataGrid.Columns>
+
+                        <DataGridTemplateColumn Width="80" IsReadOnly="True">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border CornerRadius="80,80,80,80" HorizontalAlignment="Center" VerticalAlignment="Top" Height="40" Width="40">
+                                        <Border.Background>
+                                            <ImageBrush x:Name="imagePdP" Stretch="Fill" ImageSource="{Binding urlPhoto}"/>
+                                        </Border.Background>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+
+
+                        <DataGridTextColumn Header="Profil" Binding="{Binding urlPhoto}" Width="10" IsReadOnly="True"  />
+                        <DataGridTextColumn Header="Type de Congé" Binding="{Binding idEmploye}" Width="150"/>
+                        <DataGridTextColumn Header="Nom" Binding="{Binding typeConge}" Width="150" />
+                        <DataGridTextColumn Header="Prénom" Binding="{Binding nomEmploye}" Width="125" />
+                        <DataGridTextColumn Header="Début" Binding="{Binding prenomEmploye}" Width="110"/>
+                        <DataGridTextColumn Header="Fin" Binding="{Binding debutConge}" Width="110" />
+                        <DataGridTextColumn Header="Jours"  Binding ="{Binding finConge}" Width="100" IsReadOnly="True" />
+                        <DataGridTextColumn Header="Département" Binding ="{Binding nbJours}" Width="150" />
+                        <!--Maso-->
+                        <DataGridTemplateColumn Width="35" IsReadOnly="True">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate >
+                                    <Image x:Name="voirPlus" HorizontalAlignment="Left" Margin="-30 -10 0 0" Source="/oeil.png"  Width="20" Height="20" MouseDown="clickImage" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="100" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button x:Name="buttonRefuser"   
+                ToolTip="MaterialDesignRaisedButton with Round Corners"
+                materialDesign:ButtonAssist.CornerRadius="15"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"  VerticalAlignment="Top" Margin="-15,0,0,0" Height="30">
+                                        <Button.Background>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#FFAB1D1D"/>
+                                                <GradientStop Color="#FFFF0C03" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </Button.Background>
+                                        <TextBlock FontSize="10" ><Run Language="fr-fr" Text="REFUSER"/></TextBlock>
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="100" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button x:Name="buttonValider"   
+                ToolTip="MaterialDesignRaisedButton with Round Corners"
+                materialDesign:ButtonAssist.CornerRadius="15"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"  VerticalAlignment="Top" Margin="-15,0,0,0" Height="30">
+                                        <Button.Background>
+
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="Green"/>
+                                                <GradientStop Color="#00A100" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </Button.Background>
+                                        <TextBlock FontSize="10" ><Run Language="fr-fr" Text="VALIDER"/></TextBlock>
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Image x:Name="essaiImage" Width="100" Height="100" />
+
+            </StackPanel>
+        </StackPanel>
+
+        <!--Onglet demande de congé-->
+
+        <StackPanel x:Name="Fenetre"  Grid.Column="1" Margin="0,60,0,0" Orientation="Horizontal" Width="1270" d:IsHidden="True"  >
+            <StackPanel Height="800" Width="1270" d:IsHidden="True">
+                <Grid x:Name="fenetreFlottanteCongé" HorizontalAlignment="Center" Height="700" Margin="-70,0,0,0" VerticalAlignment="Center" Width="500"
+              Background="Transparent">
+
+
+                    <Border BorderBrush="Transparent" BorderThickness="0.5,0.5,0.5,0.5" CornerRadius="30,30,30,30" Background="#EBEBEB"/>
+                    <Border CornerRadius="80,80,80,80" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,100,0,0" Height="150" Width="150" >
+                        <Border.Background>
+                            <ImageBrush x:Name="imagePdPConge" Stretch="Fill" ImageSource="/userlamda.png"/>
+                        </Border.Background>
+                    </Border>
+
+                    <materialDesign:PackIcon x:Name="fermerFlottanteConge" Kind="Close"
+                    VerticalAlignment="Top"
+                    Width="20"
+                    Height="20"
+                    HorizontalAlignment="Right"
+                    Opacity="0.3"
+                    Margin="0 13 14 0"  Cursor="Hand" MouseDown="CloseFlottanteConge" />
+
+                    <Label x:Name="titreDemandeCongé" Margin="0,40,0,100" HorizontalAlignment="Center" >
+                        <TextBlock FontSize="24" HorizontalAlignment="Center" Text="Demandes de Congé" Foreground="Black" FontWeight="Bold" />
+                    </Label>
+                    <Label x:Name="NomCongé" Margin="55,300,0,100" HorizontalAlignment="Left" >
+                        <TextBlock FontSize="15" HorizontalAlignment="Left" Text="Nom" Foreground="Black" FontWeight="Bold" />
+                    </Label>
+                    <Label x:Name="PrenomCongé" Margin="55,350,0,100" HorizontalAlignment="Left" >
+                        <TextBlock FontSize="15" HorizontalAlignment="Left" Text="NOM" Foreground="Black" FontWeight="Bold" />
+                    </Label>
+                    <Label x:Name="DateDébut" Margin="55,400,0,100" HorizontalAlignment="Left" >
+                        <TextBlock FontSize="15" HorizontalAlignment="Left" Text="Date de Début" Foreground="Black" FontWeight="Bold" />
+                    </Label>
+                    <Label x:Name="DateFin" Margin="55,450,0,100" HorizontalAlignment="Left" >
+                        <TextBlock FontSize="15" HorizontalAlignment="Left" Text="Date de Fin" Foreground="Black" FontWeight="Bold" />
+                    </Label>
+                    <Label x:Name="Département" Margin="55,500,0,100" HorizontalAlignment="Left" >
+                        <TextBlock FontSize="15" HorizontalAlignment="Left" Text="Département" Foreground="Black" FontWeight="Bold" />
+                    </Label>
+                    <Label x:Name="NombreDeCongé" Margin="55,550,0,100" HorizontalAlignment="Left" >
+                        <TextBlock FontSize="15" HorizontalAlignment="Left" Text="Nombre de Jours" Foreground="Black" FontWeight="Bold" />
+                    </Label>
+
+                    <!--Right Part-->
+
+                    <Label  Margin="300,300,55,55" HorizontalAlignment="Left" >
+                        <TextBlock x:Name="txtBoxNomFenetre" FontSize="15" HorizontalAlignment="Right" Text="Nom" Foreground="Black"/>
+                    </Label>
+                    <Label x:Name="LabelPrenom" Margin="300,350,55,55" HorizontalAlignment="Left"  >
+                        <TextBlock x:Name="txtBoxPrenomFenetre" FontSize="15" HorizontalAlignment="Right" Text="Prénom" Foreground="Black"  />
+                    </Label>
+                    <Button x:Name="buttonRefuserFenetre"   
+                ToolTip="MaterialDesignRaisedButton with Round Corners"
+                materialDesign:ButtonAssist.CornerRadius="22"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Width="180"  VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="55,0,55,50" Height="35">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFAB1D1D"/>
+                                <GradientStop Color="#FFFF0C03" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                        <TextBlock FontSize="12" ><Run Language="fr-fr" Text="REFUSER"/></TextBlock>
+                    </Button>
+
+
+
+                    <Button x:Name="buttonAccepterFenetre"   
+                ToolTip="MaterialDesignRaisedButton with Round Corners"
+                materialDesign:ButtonAssist.CornerRadius="22"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Width="180"  VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="55,0,55,50" Height="35">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Green"/>
+                                <GradientStop Color="#00A100" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                        <TextBlock FontSize="12" ><Run Language="fr-fr" Text="VALIDER"/></TextBlock>
+                    </Button>
+                    <DatePicker x:Name="datePickerDateDebutFenetre" Language="fr-fr"  HorizontalAlignment="Left" Margin="300,401,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="22" Width="96">
+                        <DatePicker.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                            </TransformGroup>
+                        </DatePicker.RenderTransform>
+                    </DatePicker>
+                    <DatePicker x:Name="datePickerDateFinFenetre" Language="fr-fr"  HorizontalAlignment="Left" Margin="300,450,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="22" Width="96">
+                        <DatePicker.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                            </TransformGroup>
+                        </DatePicker.RenderTransform>
+                    </DatePicker>
+                    <Label x:Name="LabelNbCongé" Margin="300,550,55,55" HorizontalAlignment="Left"  >
+                        <TextBlock x:Name="txtBoxCongePris" FontSize="15" HorizontalAlignment="Right" Text="Congé" Foreground="Black"  />
+                    </Label>
+
+                </Grid>
+            </StackPanel>
+        </StackPanel >
+
+        <!--Pannel Fiche de paie-->
+
+        <StackPanel x:Name="PannelFicheDePaie" Margin="39,0,-101,0" Orientation="Horizontal" Grid.Column="1" Grid.ColumnSpan="2" d:IsHidden="True"  >
+            <StackPanel Height="791" Width="1066" VerticalAlignment="Top">
+                <Label Margin="30,45,0,40" Height="50" Width="352">
+                    <TextBlock FontSize="24" HorizontalAlignment="Center" Text="Gestion de Fiche de Paie" Foreground="#FF003F9A" FontWeight="Bold" Height="40"/>
+                </Label>
+                <DataGrid x:Name="gridFicheDePaie" Width ="1084" AutoGenerateColumns="False" d:ItemsSource="{d:SampleData ItemCount=5}" IsEnabled="True" Height="623">
+
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Width="150" IsReadOnly="True"  />
+                        <DataGridTextColumn Header="Prénom" Binding="{Binding Prenom}" Width="150"/>
+                        <DataGridTextColumn Header="Salaire Brut" Binding="{Binding SalaireBase}" Width="100" />
+                        <DataGridTextColumn Header="Heures Sup." Binding="{Binding HeuresSupp}" Width="100" />
+                        <DataGridTextColumn Header="Indemnité 1" Binding="{Binding Indemnite1}" Width="100"/>
+                        <DataGridTextColumn Header="Indemnité 2" Binding="{Binding Indemnite2}" Width="100" />
+                        <DataGridTextColumn Header="Département" Binding ="{Binding Departement}" Width="100" />
+                        <DataGridTextColumn Header="Statut "  Binding ="{Binding Statut}" Width="80" IsReadOnly="True" />
+                        <DataGridTemplateColumn Width="100" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button x:Name="buttonImprimer"   
+                                         ToolTip="MaterialDesignRaisedButton with Round Corners"
+                                         materialDesign:ButtonAssist.CornerRadius="15"
+                                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"  VerticalAlignment="Top" Margin="-15,0,0,0" Height="30" Click="clickButtonImprimerFicheDePaie">
+                                        <Button.Background>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="Blue" />
+                                                <GradientStop Color="#FF003F9A" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </Button.Background>
+                                        <TextBlock FontSize="10" ><Run Language="fr-fr" Text="IMPRIMER"/></TextBlock>
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Width="100" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button x:Name="buttonImprimer"
+                                    ToolTip="MaterialDesignRaisedButton with Round Corners"
+                                    materialDesign:ButtonAssist.CornerRadius="15"
+                                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" VerticalAlignment="Top" Margin="-15,0,0,0" Height="30" Click="clickEnvoyerFDP">
+                                        <Button.Background>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="White" />
+                                                <GradientStop Color="#FF003F9A" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </Button.Background>
+                                        <TextBlock FontSize="10" ><Run Language="fr-fr" Text="Envoyer"/></TextBlock>
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <!--Maso-->
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </StackPanel>
+
+        <!---Pannel Parametre-->
+
+        <StackPanel x:Name="panelParametre" Orientation="Vertical" Grid.Column="1" Height="800" Margin="39,0,10,0" d:IsHidden="True">
+            <Label x:Name="Parametre" Foreground="#FF003F9A" FontSize="24" HorizontalAlignment="Center" Margin="30,45,0,0" Width="193" FontWeight="Bold">PARAMETRES</Label>
+            <Canvas x:Name="Recherche" Width="307" Height="46" HorizontalAlignment="Left" Margin="20,30,0,0">
+                <TextBox Width="300" Height="40"  Foreground="Blue"></TextBox>
+                <TextBlock Width="50" Height="40" HorizontalAlignment="Center" Margin="250,0,0,0" Background="#FF003F9A">
+                    <Image Source="/icones/recherche.png"  Width="30" Height="30" Margin="10,6,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                </TextBlock>
+
+            </Canvas>
+            <Grid x:Name="ContenuParam" Width="981" Height="631">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="169*"/>
+                    <ColumnDefinition Width="455*"/>
+                    <ColumnDefinition Width="357*"/>
+                </Grid.ColumnDefinitions>
+                <materialDesign:Card x:Name="DateHeure" Grid.Column="2" HorizontalAlignment="Left" Margin="92,58,0,0" VerticalAlignment="Top" Height="134" Width="168"  >
+                    <StackPanel >
+                        <TextBlock Height="74" Background="#FF98E5E2" FontWeight="Bold" FontSize="18" Foreground="#FF8C8282"  ><Run Text="      "/><LineBreak/><Run Text="    DATE ET HEURE"/></TextBlock>
+                    </StackPanel>
+
+                </materialDesign:Card>
+                <materialDesign:Card x:Name="Commpte" Grid.Column="2" HorizontalAlignment="Left" Margin="92,242,0,0" VerticalAlignment="Top" Height="134" Width="168">
+                    <StackPanel >
+                        <TextBlock Height="74" Background="#ebebeb" FontWeight="Bold" FontSize="18" Foreground="#FF8C8282" ><Run Language="fr-fr" Text="        "/><LineBreak/><Run Language="fr-fr" Text="        "/><Run Text="COMPTE"/></TextBlock>
+                    </StackPanel>
+                </materialDesign:Card>
+                <materialDesign:Card x:Name="Securite" Grid.Column="2" HorizontalAlignment="Center" Margin="0,426,0,0" VerticalAlignment="Top" Height="134" Width="168">
+                    <StackPanel >
+                        <TextBlock Height="74" Background="#33E67016" FontSize="18" FontWeight="Bold" Foreground="#FF8C8282" ><Run/><LineBreak/><Run Text="     "/><Run Language="fr-fr" Text="   "/><Run Text=" "/><Run Text="SECURITE"/></TextBlock>
+                    </StackPanel>
+                </materialDesign:Card>
+                <Image Grid.Column="2" Margin="234,524,73,57" Source="/icons8_security_configuration_50px_1.png" Stretch="Fill"/>
+                <Image Grid.Column="2" Margin="238,339,0,242" Source="/icons8_user_groups_50px_1.png" Stretch="Fill" HorizontalAlignment="Left" Width="46"/>
+                <Image Grid.Column="2" Margin="239,156,68,425" Source="/icons8_schedule_50px.png" Stretch="Fill"/>
+                <StackPanel x:Name="Langue" Margin="289,58,0,417" Grid.Column="1" >
+                    <TextBlock Height="74" Background="#FFC8EEDA" FontWeight="Bold" FontSize="18" Foreground="#FF8C8282"  ><Run Language="fr-fr" Text="       "/><LineBreak/><Run Language="fr-fr" Text="       LANGUES"/></TextBlock>
+                    <Image Source="/icons8_language_skill_50px.png" Stretch="Fill" Height="49" Width="56"/>
+                </StackPanel>
+                <StackPanel x:Name="Theme" Margin="289,236,0,239" Grid.Column="1" >
+                    <TextBlock Height="74" Background="#FFF8BAC8" FontWeight="Bold" FontSize="18" Foreground="#FF8C8282"  ><Run Language="fr-fr" Text="         "/><LineBreak/><Run Language="fr-fr" Text="         THEME"/></TextBlock>
+                    <Image Height="48" Source="/icons8_illustrator_50px.png" Stretch="Fill" Width="64"/>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+
+
+
+
+
+
+
+
+    </Grid>
+
+</Window>

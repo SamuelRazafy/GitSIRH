@@ -1,0 +1,379 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{108AC4FF-CCB4-4994-AF24-31B6C349601B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Interface_bienvenue</RootNamespace>
+    <AssemblyName>Interface_bienvenue</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ControlzEx, Version=4.0.0.0, Culture=neutral, PublicKeyToken=69f1c32f803d307e, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.4.3.0\lib\net462\ControlzEx.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=2.0.0.0, Culture=neutral, PublicKeyToken=51482d6f650b2b3f, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.2.0.0\lib\net47\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=2.0.6.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.2.0.6\lib\net452\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.MahApps, Version=0.2.2.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.MahApps.0.2.2\lib\net452\MaterialDesignThemes.MahApps.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=4.5.0.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.4.5.0\lib\net452\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.19\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\..\Downloads\mysql-connector-dotnet\mysql-connector.net\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity">
+      <HintPath>..\..\..\..\Downloads\mysql-connector-dotnet\mysql-connector.net\MySql.Data.Entity.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Web">
+      <HintPath>..\..\..\..\Downloads\mysql-connector-dotnet\mysql-connector.net\MySql.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="ClassPersonnel.cs" />
+    <Compile Include="ConfirmerInscription.xaml.cs">
+      <DependentUpon>ConfirmerInscription.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Conge.cs" />
+    <Compile Include="DemandeDeCongeAdmin.xaml.cs">
+      <DependentUpon>DemandeDeCongeAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Departement.cs" />
+    <Compile Include="essaiConn.xaml.cs">
+      <DependentUpon>essaiConn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FicheDePaie.cs" />
+    <Compile Include="Inscription.xaml.cs">
+      <DependentUpon>Inscription.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceAdmin.xaml.cs">
+      <DependentUpon>InterfaceAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceSimpleUilisateur.xaml.cs">
+      <DependentUpon>InterfaceSimpleUilisateur.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonnelDepartement.cs" />
+    <Compile Include="TacheRACI.cs" />
+    <Compile Include="Test.xaml.cs">
+      <DependentUpon>Test.xaml</DependentUpon>
+    </Compile>
+    <Page Include="ConfirmerInscription.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DemandeDeCongeAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="essaiConn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Inscription.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InterfaceAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InterfaceSimpleUilisateur.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Test.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="16-169256_m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Red-superpuesta.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Les-avantages-dun-logiciel-SIRH.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SIRH.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="human-resources-hr-management-recruitment-employment-headhunting-concept-with-magnifier-wireframe-hand_127544-812.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="R.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="OIP %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Nouveau_projet-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icones\conge.png" />
+    <Resource Include="icones\dashboard.png" />
+    <Resource Include="icones\graphe.png" />
+    <Resource Include="icones\grille.png" />
+    <Resource Include="icones\home.png" />
+    <Resource Include="icones\inbox.png" />
+    <Resource Include="icones\logout.png" />
+    <Resource Include="icones\Menu .png" />
+    <Resource Include="icones\outils.png" />
+    <Resource Include="icones\paye.png" />
+    <Resource Include="icones\Personnel.png" />
+    <Resource Include="icones\projets.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icones\Departement.png" />
+    <Resource Include="icones\signing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icones\recherche.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="MicrosoftTeams-image %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icones\comptabilite.png" />
+    <Resource Include="icones\computer.png" />
+    <Resource Include="icones\rh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="conge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8_export_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8_tasklist_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8_inscription_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8_leave_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8_list_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8_signing_a_document_50px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8_leave_50px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8_rescheduling_a_task_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8_sign_document_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8_export_50px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icones\Marketing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icones\simpleuser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Logo de Go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="userlamda.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="facebook-new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="mail_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="google-logo %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="lock_26px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="oeil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="happy birthday.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="hbd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="baby.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logoFicheDePaie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icones\bleu.png" />
+    <Resource Include="icones\femme.png" />
+    <Resource Include="icones\jaune.png" />
+    <Resource Include="icones\logo.png" />
+    <Resource Include="icones\noir.png" />
+    <Resource Include="icones\rouge.png" />
+    <Resource Include="icones\téléchargement.png" />
+    <Resource Include="icones\vert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icones\ajouter.png" />
+    <Resource Include="icones\annuler.png" />
+    <Resource Include="icones\baby.png" />
+    <Resource Include="icones\happybirthday.jpg" />
+    <Resource Include="icones\hbd.png" />
+    <Resource Include="icones\icons8_user_50px_1.png" />
+    <Resource Include="icones\modifier.png" />
+    <Resource Include="icones\supprimer.png" />
+    <Resource Include="icones\valider.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8_calendar_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8_user_groups_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8_security_lock_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8_user_groups_50px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8_security_configuration_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8_security_configuration_50px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8_schedule_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8_language_skill_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8_illustrator_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8_more_info_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8_more_info_50px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8_more_info_50px_2.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets'))" />
+  </Target>
+</Project>

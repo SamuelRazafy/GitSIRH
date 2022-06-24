@@ -1,0 +1,68 @@
+﻿<Window x:Class="Interface_bienvenue.essaiConn"
+     
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Interface_bienvenue"
+        xmlns:materialDesignMahApps="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title=" " Height="645" Width="875" WindowStartupLocation="CenterScreen" FontFamily="Sego UI" WindowStyle="ToolWindow">
+
+    <Grid Margin="0,0,0,-16">
+        <StackPanel HorizontalAlignment="Left" Height="641" Margin="0,-14,0,0" VerticalAlignment="Top" Width="422" Background="#FF003F9A">
+            <StackPanel Height="100"/>
+            <StackPanel Height="125" Width="198" HorizontalAlignment="Center">
+                <StackPanel.Background>
+                    <ImageBrush ImageSource="Logo de GO.png"/>
+                </StackPanel.Background>
+            </StackPanel>
+            <Label Content="  SYSTEME D'INFORMATION&#xA;DES RESSOURCES HUMAINES" Foreground="White" FontWeight="Bold" FontSize="22" BorderThickness="20,20,20,20" Height="109" Width="358" HorizontalContentAlignment="Center" Margin="0,125,0,0"/>
+        </StackPanel>
+        <TextBox x:Name="textMail"  HorizontalAlignment="Left" Height="43" Margin="522,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" TextChanged="textMail_TextChanged"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+            materialDesignMahApps:HintAssist.Hint="Saisir e-mail"
+            materialDesignMahApps:HintAssist.FloatingOffset="0, -20"
+            BorderBrush="#c5c8cc"
+            BorderThickness="0 0 0 1.5"/>
+        <Button x:Name="butConnection" Content="SE CONNECTER" HorizontalAlignment="Left" Margin="580,345,0,0" VerticalAlignment="Top" Width="158" Click="Button_Click" FontSize="14" materialDesignMahApps:ButtonAssist.CornerRadius="22">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Blue" />
+                    <GradientStop Color="#FF003F9A" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+
+        </Button>
+        <Button x:Name="butGoogle" Content="" HorizontalAlignment="Left" Margin="596,484,0,0" VerticalAlignment="Top" Width="40"  Click="butGoogle_Click" FontSize="14" materialDesignMahApps:ButtonAssist.CornerRadius="22" Height="43" BorderBrush="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="/google-logo (1).png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="butFace" Content="" HorizontalAlignment="Left" Margin="690,484,0,0" VerticalAlignment="Top" Width="40" FontSize="14"  Click="butFace_Click" RenderTransformOrigin="0.53,1.219" materialDesignMahApps:ButtonAssist.CornerRadius="22" Height="43" BorderBrush="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="/facebook-new.png"/>
+            </Button.Background>
+        </Button>
+        <Label Content="SE CONNECTER" HorizontalAlignment="Left" Margin="572,30,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
+        <Button x:Name="butInsc" Content="S'INSCRIRE " HorizontalAlignment="Left" Margin="580,404,0,0" VerticalAlignment="Top" Width="158" Foreground="White"   Height="32"  Click="butInsc_Click" materialDesignMahApps:ButtonAssist.CornerRadius="22">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Blue" />
+                    <GradientStop Color="#FF003F9A" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="butAnnuler" Content="Annuler" HorizontalAlignment="Left" Margin="933,533,0,0" VerticalAlignment="Top" Width="99" Height="42" Click="butAnnuler_Click" Background="#FFEBEBEB" BorderBrush="White" materialDesignMahApps:ButtonAssist.CornerRadius="22" Foreground="Black" Opacity="0.6"/>
+        <PasswordBox x:Name="textMdp" HorizontalAlignment="Left" Margin="521,235,0,0" VerticalAlignment="Top" Width="317" Background="{x:Null}" materialDesignMahApps:HintAssist.Hint="Saisir mot de passe"/>
+        <StackPanel HorizontalAlignment="Left" Height="25" Margin="464,235,0,0" VerticalAlignment="Top" Width="30">
+            <StackPanel.Background>
+                <ImageBrush ImageSource="lock_26px.png"/>
+            </StackPanel.Background>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="25" Margin="464,147,0,0" VerticalAlignment="Top" Width="26" RenderTransformOrigin="-8.573,0.486">
+            <StackPanel.Background>
+                <ImageBrush ImageSource="mail_50px.png"/>
+            </StackPanel.Background>
+        </StackPanel>
+    </Grid>
+</Window>

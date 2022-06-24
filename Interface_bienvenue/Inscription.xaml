@@ -1,0 +1,120 @@
+﻿<Window x:Class="Interface_bienvenue.Inscription"
+       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Interface_bienvenue"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Login_inscription" Height="645" Width="875"
+        AllowsTransparency="True"
+         Background="Transparent"
+         WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        FontSize="18"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1.22*"/>
+        </Grid.ColumnDefinitions>
+        <!--left section-->
+        <Border Background="#003F9A"
+                CornerRadius="10 0 0 10"
+                ClipToBounds="True" RenderTransformOrigin="0.458,0.248">
+
+            <Image Margin="65,134,65,28" Source="/MicrosoftTeams-image (3).png" />
+
+        </Border>
+        <Label Content="INSCRIPTION" Margin="62,170,0,331" FontSize="40" Foreground="#DDFFFFFF"/>
+        <!--Right Section-->
+        <Border Grid.Column="1"
+                Background="#ffffff"
+                CornerRadius="0 10 10 0"
+                >
+            <Grid>
+                <materialDesign:PackIcon x:Name="fermer" Kind="Close"
+                                         VerticalAlignment="Top"
+                                         Width="20"
+                                         Height="20"
+                                         HorizontalAlignment="Right"
+                                         Opacity="0.3"
+                                         Margin="0 13 14 0" MouseDown="fermerInscription" Cursor="Hand"/>
+
+                <StackPanel VerticalAlignment="Center"
+                            Margin="75,0,75,0" Height="459">
+                    <TextBox x:Name="textBoxNom" TextWrapping="Wrap"  Width="307" 
+                             materialDesign:HintAssist.Hint="Nom" 
+                             materialDesign:HintAssist.FloatingOffset="0, -20"
+                             BorderBrush="#c5c8cc"
+                             BorderThickness="0 0 0 1.5"/>
+                    <TextBox x:Name="textBoxPrenom" TextWrapping="Wrap"  Width="307" 
+                             materialDesign:HintAssist.Hint="Prénom" 
+                             materialDesign:HintAssist.FloatingOffset="0, -20"
+                             BorderBrush="#c5c8cc"
+                             Margin="0 27"
+                             BorderThickness="0 0 0 1.5"/>
+                    <TextBox x:Name="textBoxEmail" TextWrapping="Wrap"  Width="307" 
+                             materialDesign:HintAssist.Hint="Email" 
+                             materialDesign:HintAssist.FloatingOffset="0, -20"
+                             BorderBrush="#c5c8cc"
+                            
+                             BorderThickness="0 0 0 1.5"/>
+                    <PasswordBox x:Name="textBoxMdp"  Width="307" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+                             materialDesign:HintAssist.Hint="Mot de passe" 
+                             materialDesign:HintAssist.FloatingOffset="0, -18"
+                             BorderBrush="#c5c8cc"
+                             Margin="0 27"
+                             BorderThickness="0 0 0 1.5"/>
+                    <PasswordBox x:Name="textBoxConfirmerMdp"  Width="307" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+                             materialDesign:HintAssist.Hint="Confirmez votre mot de passe" 
+                             materialDesign:HintAssist.FloatingOffset="0, -18"
+                             BorderBrush="#c5c8cc"
+                             BorderThickness="0 0 0 1.5"/>
+                    <CheckBox Margin="0 40 0 20" FontSize="12" Height="40" Width="307">
+                        <TextBlock>
+                            <Run Foreground="#b6b6b6">J'accepte </Run>
+                            <Run Foreground="#07bf96">"les conditions générales d'utilisation"</Run>
+                        </TextBlock>
+
+                    </CheckBox>
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="buttonInscrire" Content="S'INSCRIRE"
+                                Background="#4484ce"
+                                Foreground="#ffffff"
+                                FontSize="18"
+                                Width="309"
+                                Height="45"
+                                materialDesign:ButtonAssist.CornerRadius="22" Click="btnInscription"/>
+
+                        <Button Content=""
+                                FontSize="16"
+                                Width="213"
+                                Height="45"
+                                Margin="5 0 0 0"
+                                Style="{StaticResource MaterialDesignFlatButton}"
+                                materialDesign:ButtonAssist.CornerRadius="22"/>
+
+                    </StackPanel>
+
+
+
+
+
+                </StackPanel>
+
+
+
+            </Grid>
+
+
+        </Border>
+
+
+
+
+
+    </Grid>
+</Window>
